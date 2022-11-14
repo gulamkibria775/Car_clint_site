@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import { useLoaderData } from "react-router-dom";
 import useTitle from "../../../hook/useTitle";
 import ServiceCard from "./ServiceCard";
@@ -11,6 +11,15 @@ export default function ServicesAll() {
   const premium = useLoaderData();
   
   // spinner
+
+
+  useEffect(() => {
+    
+    fetch("http://localhost:5000/services")
+      .then((res) => res.json())
+      .then( ()=>setIsLoading('hidden'));
+      
+  }, []);
   
 
   console.log("serviceala", premium);
