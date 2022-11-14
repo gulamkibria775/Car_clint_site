@@ -1,15 +1,20 @@
 import React from "react";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate,useLocation } from "react-router-dom";
 import img from "../../assets/images/login/login.svg";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import useTitle from "../../hook/useTitle";
 import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
+    toast.configure()
+    const navigate = useNavigate();
+    const location = useLocation();
   const [isLoading, setIsLoading] = useState("hidden");
   useTitle("SingUp");
   const { createUser } = useContext(AuthContext);
+  const from = location.state?.from?.pathname || "/";
   const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -20,13 +25,16 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast("singup successfully");
+        toast.success("Success Notification !", {
+            position: toast.POSITION.TOP_CENTER
+          });
         form.reset();
+        navigate(from, { replace: true });
       })
       .catch((err) => console.error(err));
   };
   const handlelogspin = () => {
-    setIsLoading("");
+    setIsLoading(" ");
   };
 
   return (
@@ -89,6 +97,7 @@ const SignUp = () => {
                 value="Sign Up"
               />
             </button>
+            
           </form>
           <p className="text-center">
             Already have an account?{" "}
@@ -98,6 +107,7 @@ const SignUp = () => {
           </p>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
