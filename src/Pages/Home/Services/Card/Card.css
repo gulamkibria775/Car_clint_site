@@ -1,0 +1,9 @@
+.comment-img{
+    height: 50px;
+    width: 60px;
+    display: inline;
+}
+.comment-grid{
+    display: grid;
+    grid-template-columns: 70px 1fr;
+}
