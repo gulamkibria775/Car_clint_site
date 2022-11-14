@@ -19,12 +19,6 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-
-    const spinn = () => {
-      setIsLoading("");
-    };
-
-
     login(email, password)
       .then((result) => {
         const user = result.user;
@@ -55,8 +49,24 @@ const Login = () => {
       .catch((error) => console.log(error));
   };
 
+  const handlespin = () => {
+    setIsLoading("");
+  };
+
   return (
     <div className="hero w-full my-20">
+
+  {/* spinnstart */}
+  <div className={isLoading}>
+              <span class="flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+              </span>
+            </div>
+
+            {/* sptinend */}
+
+
       <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
         <div className="text-center lg:text-left">
           <img className="w-3/4" src={img} alt="" />
@@ -75,6 +85,9 @@ const Login = () => {
                 className="input input-bordered"
               />
             </div>
+
+          
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Password</span>
@@ -93,14 +106,7 @@ const Login = () => {
             </div>
             {/* spinner */}
 
-            <div className={isLoading}>
-              <span class="flex h-3 w-3">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
-              </span>
-            </div>
-
-            <button onClick={() => spinn()} className="form-control mt-6">
+            <button onClick={handlespin} className="form-control mt-6">
               <input className="btn btn-primary" type="submit" value="Login" />
             </button>
           </form>
