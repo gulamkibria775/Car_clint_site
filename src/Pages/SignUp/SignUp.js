@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
-    toast.configure()
+    
     const navigate = useNavigate();
     const location = useLocation();
   const [isLoading, setIsLoading] = useState("hidden");
@@ -25,9 +25,8 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast.success("Success Notification !", {
-            position: toast.POSITION.TOP_CENTER
-          });
+        alert("Success sing up")
+         
         form.reset();
         navigate(from, { replace: true });
       })
