@@ -133,6 +133,10 @@ export default function Consultan() {
 
 
    </div>
+
+
+   {/* chart */}
+   
   </div>
   )
 }
