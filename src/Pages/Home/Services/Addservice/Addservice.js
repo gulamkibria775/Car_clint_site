@@ -35,12 +35,12 @@ export default function Addservice() {
     // }
 
     fetch("http://localhost:5000/services", {
-      method: "POST",
+      method: "GET",
       headers: {
         "content-type": "application/json",
         // authorization: `Bearer ${localStorage.getItem('genius-token')}`
       },
-      body: JSON.stringify(order),
+      // body: JSON.stringify(order),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -48,7 +48,7 @@ export default function Addservice() {
         if (data) {
           alert("comment successfully");
           form.reset();
-          window.location.reload(true);
+          // window.location.reload(true);
         }
       })
       .catch((er) => console.error(er));

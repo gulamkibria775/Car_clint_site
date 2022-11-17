@@ -4,10 +4,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 
-const Services = () => {
+const Services = ({service}) => {
   const [services, setServices] = useState([]);
   // spinner
   const [isLoading, setIsLoading] = useState();
+  console.log("all",service);
 
   useEffect(() => {
     
@@ -18,7 +19,7 @@ const Services = () => {
       
   }, []);
   
-  console.log(services);
+  console.log("all",service);
 
   return (
     <div>
