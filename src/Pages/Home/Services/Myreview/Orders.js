@@ -70,16 +70,18 @@ const Orders = () => {
 
     return (
         <div>
-            <h2 className="text-5xl">You have {orders.length} services</h2>
+            <h2 className="text-5xl">You have {orders.length} comment</h2>
             <div className="overflow-x-auto w-full">
                 <table className='table-auto'>
                     <thead>
                         <tr>
                             <th>
+                               Delete
                             </th>
+                            <th>image</th>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>comment</th>
+                            {/* <th>Favorite Color</th> */}
                             <th></th>
                         </tr>
                     </thead>

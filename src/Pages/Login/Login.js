@@ -11,7 +11,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const from = location.state?.from?.pathname|| "/";
+ const from = location.state?.from?.pathname || "/"
   
   console.log('from',from)
 
@@ -44,15 +44,11 @@ const Login = () => {
           .then((data) => {
             console.log(data);
             // local storage is the easiest but not the best place to store jwt token
-            localStorage.setItem("genius-token", data.token);
+            // localStorage.setItem("genius-token", data.token);
            navigate(from, { replace: true });
           });
       })
-      .catch((error) => {
-       
-        console.log(error)
-        // navigate(from, { replace: true });
-      });
+      .catch((error) =>  console.log(error) );
   };
 
   const handlespin = () => {

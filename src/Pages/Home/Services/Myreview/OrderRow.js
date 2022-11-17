@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 
 const OrderRow = ({ order, handleDelete, handleStatusUpdate }) => {
-    const { _id, servicename, price,img,description,comment } = order;
+    const { _id, name, price,img,description,comment } = order;
     
     const [orderService, setOrderService] = useState({})
-    console.log('sesh rar',order.comment)
+    console.log('sesh rar',name)
 
     useEffect(() => {
         fetch(`http://localhost:5000/services/${_id}`)
@@ -32,12 +32,13 @@ const OrderRow = ({ order, handleDelete, handleStatusUpdate }) => {
                                 <img src={img} alt="Avatar Tailwind CSS Component" />}
                         </div>
                     </div>
-                    <div>
-                        {/* <div className="font-bold">{img}</div> */}
-                        <div className="text-sm opacity-50">{servicename}</div>
-                    </div>
+                   
                 </div>
             </td>
+            <td> <div>
+                        {/* <div className="font-bold">{img}</div> */}
+                        <div className="text-sm opacity-50">{name}</div>
+                    </div></td>
             <td>
                 {/* {servicename}
                 <br /> */}

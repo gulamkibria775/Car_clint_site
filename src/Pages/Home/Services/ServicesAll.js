@@ -11,7 +11,7 @@ export default function ServicesAll() {
   const premium = useLoaderData();
   
   // spinner
-
+  console.log("serviceala1", premium);
 
   useEffect(() => {
     
