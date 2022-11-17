@@ -1,5 +1,6 @@
 import React,{ useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { useLocation, useNavigate } from "react-router-dom";
 
 import {getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
 
@@ -11,7 +12,10 @@ import app from '../../../../firebase/firebase.config';
 
 
 export default  Comment = ({id}) => {
+    const location = useLocation();
+    const navigate = useNavigate();
     const googleProvider = new GoogleAuthProvider()
+    const from = location.state?.from?.pathname || "/";
     const auth=getAuth(app)
     
     const { _id, title, price } = useLoaderData();
@@ -57,9 +61,11 @@ console.log(order)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                navigate(from, { replace: true });
                 if(data.acknowledged){
                     alert('comment successfully')
                     form.reset();
+                    
                     window.location.reload(true)
                 }
             })
@@ -110,8 +116,8 @@ console.log(order)
             </>
           ) : (
             <li className="font-semibold">
-                <h1 className=''>please login to add a new review</h1>
-              <Link to="/login">Login</Link>
+                <h1 className='text-4xl text-red-500 m-5 p-4'>please login to add a new review</h1>
+              <Link to="/login" className='m-5 p-4 bg-orange-500'>Login</Link>
               <span><button onClick={handleGoogleSignIn} className="p-1 bg-amber-200 rounded"  variant="outline-primary"> Login with Google</button></span>
               
             </li>

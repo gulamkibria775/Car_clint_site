@@ -11,7 +11,9 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname|| "/";
+  
+  console.log('from',from)
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -22,7 +24,7 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const user = result.user;
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
 
         const currentUser = {
           email: user.email,
@@ -31,7 +33,7 @@ const Login = () => {
         console.log(currentUser);
 
         // get jwt token
-        fetch("http://localhost:5000/jwt", {
+        fetch("http://localhost:5000/services", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -43,14 +45,19 @@ const Login = () => {
             console.log(data);
             // local storage is the easiest but not the best place to store jwt token
             localStorage.setItem("genius-token", data.token);
-            navigate(from, { replace: true });
+           navigate(from, { replace: true });
           });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+       
+        console.log(error)
+        // navigate(from, { replace: true });
+      });
   };
 
   const handlespin = () => {
     setIsLoading("");
+   
   };
 
   return (

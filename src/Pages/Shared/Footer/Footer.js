@@ -3,7 +3,7 @@ import logo from '../../../assets/logo.svg';
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-secondary text-black">
+        <footer className="footer p-10 bg-secondary text-black mt-5">
             <div>
                 {/* <img src={logo} alt="" /> */}
                 <img src="https://www.freeiconspng.com/thumbs/doctor-logo/doctor-logo-png-photo-5.png" className='logo_size' alt="" />
