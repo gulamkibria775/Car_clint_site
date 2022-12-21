@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 import {
   Card,
-  CardHeader,
+  
   CardBody,
-  CardFooter,
+  
   Typography,
 } from "@material-tailwind/react";
 import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";

@@ -40,13 +40,7 @@ export default Comment = ({ id }) => {
       rating: rating,
     };
 
-    console.log(order);
-    // if(phone.length > 10){
-    //     alert('Phone number should be 10 characters or longer')
-    // }
-    // else{
-
-    // }
+  
 
     fetch(`https://server-site-3.vercel.app/services/${_id}`, {
       method: "PUT",
@@ -156,21 +150,7 @@ export default Comment = ({ id }) => {
   );
 
   return (
-    // <div>
-    //     <form onSubmit={handlePlaceOrder}>
-    //         <h2 className="text-4xl">You are a comment:</h2>
-    //         {/* <h4 className="text-3xl">Price: {price}</h4> */}
-    //         <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
-    //             <input name="firstName" type="text" placeholder="Your Name" className="input input-ghost w-full  input-bordered"  required/>
-    //             <input name="img" type="text" placeholder="your image" className="input input-ghost w-full  input-bordered" required/>
-    //             <input name="rating" type="text" placeholder="your rating" className="input input-ghost w-full  input-bordered"  />
-    //             <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
-    //         </div>
-    //         <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="Your Comment" required></textarea>
-
-    //         <input className='btn' type="submit" value="submit" />
-    //     </form>
-    // </div>
+   
     <div>{menuItems}</div>
   );
 };

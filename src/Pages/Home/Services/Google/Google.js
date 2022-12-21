@@ -1,14 +1,8 @@
 import React, { useContext } from 'react';
-// import Button from 'react-bootstrap/Button';
-// import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
-// import ListGroup from 'react-bootstrap/ListGroup';
-// import BrandCarousel from '../BrandCarousel/BrandCarousel';
-// import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import {getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
-// import app from '../../../../firebase/firebase.config';
-// import Header from '../../../Shared/Header/Header';
+
 
 const RightSideNav = () => {
 

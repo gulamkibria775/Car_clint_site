@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const OrderRow = ({ order, handleDelete, handleStatusUpdate }) => {
-  const { _id, name, price, img, description, comment } = order;
+const OrderRow = ({ order, handleDelete }) => {
+  const { _id, name,  img, description } = order;
 
   const [orderService, setOrderService] = useState({});
   console.log("sesh rar", name);
