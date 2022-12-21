@@ -9,32 +9,32 @@ import useTitle from "../../../../hook/useTitle";
 export default function Update() {
   const storeuser = useLoaderData();
   const [user, setUser] = useState(storeuser);
-  useTitle('Update')
+  useTitle("Update");
 
   const handleupdate = (event) => {
     event.preventDefault();
     console.log("apaap", user);
-    fetch(`http://localhost:5000/users/${storeuser._id}`, {
+    fetch(`https://server-site-3.vercel.app/users/${storeuser._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body:JSON.stringify(user)
+      body: JSON.stringify(user),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount>0){
-            alert('user updated');
-            // event.target.reset();
-          
+        if (data.modifiedCount > 0) {
+          alert("user updated");
+
+          // event.target.reset();
         }
-        console.log('hi');
+        console.log("hi");
       });
   };
   const handleinputchange = (event) => {
     const field = event.target.name;
     const value = event.target.value;
-    console.log("field value",field,value)
+    console.log("field value", field, value);
     const newuser = { ...user };
     newuser[field] = value;
     setUser(newuser);

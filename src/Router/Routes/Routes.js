@@ -1,5 +1,6 @@
 import Main from "../../Layout/Main";
- import Checkout from "../../Pages/Checkout/Checkout";
+
+import Notfound from "../../Pages/Consultan/Notfound/Notfound";
 import Home from "../../Pages/Home/Home/Home";
 import Addservice from "../../Pages/Home/Services/Addservice/Addservice";
 import Blog from "../../Pages/Home/Services/Blog/Blog";
@@ -9,7 +10,7 @@ import ServiceDetail from "../../Pages/Home/Services/ServiceDetail";
 import ServicesAll from "../../Pages/Home/Services/ServicesAll";
 import Update from "../../Pages/Home/Services/Update/Update";
 import Login from "../../Pages/Login/Login";
-import Orders from "../../Pages/Orders/Orders";
+
 import SignUp from "../../Pages/SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -32,60 +33,67 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp></SignUp>,
       },
-      ,
+      // ,
+      // {
+      //   path: '/checkout/:id',
+      //   element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
+      //   loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+      // },
       {
-        path: '/checkout/:id',
-        element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
-      },
-      {
-        path: '/services1/:id',
-        element:<Comment></Comment>,
-       loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+        path: "/services1/:id",
+        element: <Comment></Comment>,
+        loader: ({ params }) =>
+          fetch(`https://server-site-3.vercel.app/services/${params.id}`),
       },
       {
         path: "/service/:id",
         element: <ServiceDetail></ServiceDetail>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://server-site-3.vercel.app/services/${params.id}`),
       },
+      // {
+      //   path: "/orders",
+      //   element: (
+      //     <PrivateRoute>
+      //       <Orders></Orders>
+      //     </PrivateRoute>
+      //   ),
+      // },
+
       {
-        path: "/orders",
+        path: "/addservice",
         element: (
           <PrivateRoute>
-            <Orders></Orders>
+            <Addservice></Addservice>
           </PrivateRoute>
         ),
+        loader: () => fetch("https://server-site-3.vercel.app/services"),
       },
-
-     { 
-      path:"/addservice",
-      element:<PrivateRoute><Addservice></Addservice></PrivateRoute>,
-      loader: () => fetch("http://localhost:5000/services"),
-     },
-
 
       {
         path: "/serviecsAll",
         element: <ServicesAll></ServicesAll>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://server-site-3.vercel.app/services"),
       },
       {
-        path:"/myreview",
-        element:<Myreview></Myreview>,
-        loader: () => fetch("http://localhost:5000/services"),
+        path: "/myreview",
+        element: <Myreview></Myreview>,
+        loader: () => fetch("https://server-site-3.vercel.app/services"),
       },
       {
-        path:"/update/:id",
-        element:<Update></Update>,
+        path: "/update/:id",
+        element: <Update></Update>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://server-site-3.vercel.app/services/${params.id}`),
       },
       {
-        path:"/blog",
-        element:<Blog></Blog>
-      }
-
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "*",
+        element: <Notfound></Notfound>,
+      },
     ],
   },
 ]);

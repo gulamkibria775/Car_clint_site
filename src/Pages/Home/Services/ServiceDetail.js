@@ -1,14 +1,14 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+// import { useEffect } from "react";
+
 import { useLoaderData } from "react-router-dom";
 import Card from "./Card/Card";
-import Comment from "./Comment/Comment";
+// import Comment from "./Comment/Comment";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
 
-export default function () {
+export default function ServiceDetail() {
   const { _id, name, img, price, description, comment } = useLoaderData();
   
   console.log("datadetailllll", name, _id, comment);

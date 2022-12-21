@@ -11,9 +11,9 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
- const from = location.state?.from?.pathname || "/"
-  
-  console.log('from',from)
+  const from = location.state?.from?.pathname || "/";
+
+  console.log("from", from);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -33,7 +33,7 @@ const Login = () => {
         console.log(currentUser);
 
         // get jwt token
-        fetch("http://localhost:5000/services", {
+        fetch("https://server-site-3.vercel.app/services", {
           method: "GET",
           headers: {
             "content-type": "application/json",
@@ -45,30 +45,27 @@ const Login = () => {
             console.log(data);
             // local storage is the easiest but not the best place to store jwt token
             // localStorage.setItem("genius-token", data.token);
-           navigate(from, { replace: true });
+            navigate(from, { replace: true });
           });
       })
-      .catch((error) =>  console.log(error) );
+      .catch((error) => alert("your password or email is wrong"));
   };
 
   const handlespin = () => {
     setIsLoading("");
-   
   };
 
   return (
     <div className="hero w-full my-20">
+      {/* spinnstart */}
+      <div className={isLoading}>
+        <span class="flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+        </span>
+      </div>
 
-  {/* spinnstart */}
-  <div className={isLoading}>
-              <span class="flex h-3 w-3">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
-              </span>
-            </div>
-
-            {/* sptinend */}
-
+      {/* sptinend */}
 
       <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
         <div className="text-center lg:text-left">
@@ -88,8 +85,6 @@ const Login = () => {
                 className="input input-bordered"
               />
             </div>
-
-          
 
             <div className="form-control">
               <label className="label">

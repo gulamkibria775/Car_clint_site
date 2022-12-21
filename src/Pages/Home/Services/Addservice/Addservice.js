@@ -4,7 +4,7 @@ import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 import useTitle from "../../../../hook/useTitle";
 
 export default function Addservice() {
-  useTitle('Addservice')
+  useTitle("Addservice");
   const { user } = useContext(AuthContext);
   const handleservice = (event) => {
     event.preventDefault();
@@ -34,13 +34,13 @@ export default function Addservice() {
 
     // }
 
-    fetch("http://localhost:5000/services", {
-      method: "GET",
+    fetch("https://server-site-3.vercel.app/services", {
+      method: "POST",
       headers: {
         "content-type": "application/json",
         // authorization: `Bearer ${localStorage.getItem('genius-token')}`
       },
-      // body: JSON.stringify(order),
+      body: JSON.stringify(order),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -65,6 +65,7 @@ export default function Addservice() {
             type="text"
             placeholder="Service-name"
             className="input input-ghost w-full  input-bordered"
+            required
           />
           <input
             name="img"

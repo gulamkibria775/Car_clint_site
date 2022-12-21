@@ -1,6 +1,5 @@
 import React from 'react';
-import person from '../../../assets/images/about_us/person.jpg'
-import parts from '../../../assets/images/about_us/parts.jpg'
+
 
 const About = () => {
     return (
