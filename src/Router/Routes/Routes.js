@@ -33,12 +33,7 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp></SignUp>,
       },
-      // ,
-      // {
-      //   path: '/checkout/:id',
-      //   element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
-      //   loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
-      // },
+     
       {
         path: "/services1/:id",
         element: <Comment></Comment>,
@@ -51,14 +46,7 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://server-site-3.vercel.app/services/${params.id}`),
       },
-      // {
-      //   path: "/orders",
-      //   element: (
-      //     <PrivateRoute>
-      //       <Orders></Orders>
-      //     </PrivateRoute>
-      //   ),
-      // },
+    
 
       {
         path: "/addservice",
